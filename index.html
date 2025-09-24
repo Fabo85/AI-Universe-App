@@ -1416,7 +1416,49 @@
                                     <div class="module-subtitle">Generate stunning art, compose music, create videos, and write compelling content.</div>
                                 </div>
                                 <div class="module-body">
-                                    <p>Creative AI tools coming soon!</p>
+                                    <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                                        <div class="feature-card">
+                                            <div class="feature-icon">🎨</div>
+                                            <div class="feature-title">AI Art Generator</div>
+                                            <div class="feature-desc">Create stunning digital artwork from text descriptions using advanced AI models.</div>
+                                            <div style="margin-top: 1rem;">
+                                                <input type="text" placeholder="Describe your artwork..." style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--ai-bubble-color); color: var(--primary-text-color); margin-bottom: 0.5rem;">
+                                                <button class="feature-btn" onclick="generateArt()">Generate Art</button>
+                                            </div>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">🎵</div>
+                                            <div class="feature-title">Music Composer</div>
+                                            <div class="feature-desc">Compose original music tracks in various genres and styles.</div>
+                                            <div style="margin-top: 1rem;">
+                                                <select style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--ai-bubble-color); color: var(--primary-text-color); margin-bottom: 0.5rem;">
+                                                    <option>Classical</option>
+                                                    <option>Jazz</option>
+                                                    <option>Electronic</option>
+                                                    <option>Ambient</option>
+                                                </select>
+                                                <button class="feature-btn" onclick="composeMusic()">Compose Music</button>
+                                            </div>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">🎬</div>
+                                            <div class="feature-title">Video Creator</div>
+                                            <div class="feature-desc">Generate short video clips and animations from text prompts.</div>
+                                            <div style="margin-top: 1rem;">
+                                                <textarea placeholder="Describe your video scene..." style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--ai-bubble-color); color: var(--primary-text-color); margin-bottom: 0.5rem; resize: vertical; height: 60px;"></textarea>
+                                                <button class="feature-btn" onclick="createVideo()">Create Video</button>
+                                            </div>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">✍️</div>
+                                            <div class="feature-title">Content Writer</div>
+                                            <div class="feature-desc">Generate blog posts, articles, and creative writing pieces.</div>
+                                            <div style="margin-top: 1rem;">
+                                                <input type="text" placeholder="Content topic..." style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--ai-bubble-color); color: var(--primary-text-color); margin-bottom: 0.5rem;">
+                                                <button class="feature-btn" onclick="generateContent()">Write Content</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -1429,7 +1471,40 @@
                                     <div class="module-subtitle">Personalized learning paths, skill development, and knowledge enhancement.</div>
                                 </div>
                                 <div class="module-body">
-                                    <p>AI Learning Mentor features coming soon!</p>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; height: 100%;">
+                                        <div>
+                                            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Learning Topics</h3>
+                                            <div class="learning-topics" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                                <button class="topic-btn" onclick="startLearning('javascript')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                    <strong>JavaScript Fundamentals</strong><br>
+                                                    <small style="color: var(--secondary-text-color);">Variables, functions, objects, and DOM manipulation</small>
+                                                </button>
+                                                <button class="topic-btn" onclick="startLearning('python')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                    <strong>Python Programming</strong><br>
+                                                    <small style="color: var(--secondary-text-color);">Data structures, algorithms, and web development</small>
+                                                </button>
+                                                <button class="topic-btn" onclick="startLearning('ai')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                    <strong>Artificial Intelligence</strong><br>
+                                                    <small style="color: var(--secondary-text-color);">Machine learning, neural networks, and AI applications</small>
+                                                </button>
+                                                <button class="topic-btn" onclick="startLearning('web')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                    <strong>Web Development</strong><br>
+                                                    <small style="color: var(--secondary-text-color);">HTML, CSS, React, and modern frameworks</small>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Learning Content</h3>
+                                            <div id="learning-content" style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; height: 400px; overflow-y: auto;">
+                                                <p style="color: var(--secondary-text-color); text-align: center; margin-top: 2rem;">Select a topic to start learning</p>
+                                            </div>
+                                            <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                                <button id="prev-lesson" class="btn btn-secondary" onclick="previousLesson()" disabled>Previous</button>
+                                                <button id="next-lesson" class="btn btn-primary" onclick="nextLesson()" disabled>Next Lesson</button>
+                                                <button id="quiz-btn" class="btn btn-primary" onclick="startQuiz()" disabled>Take Quiz</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -1466,7 +1541,47 @@
                                     <div class="module-subtitle">Transform daily logs into poetic, mythical narratives.</div>
                                 </div>
                                 <div class="module-body">
-                                    <p>Eidolon Scribe features coming soon!</p>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; height: 100%;">
+                                        <div>
+                                            <h3 style="color: var(--web3-gold); margin-bottom: 1rem;">Daily Journal Entry</h3>
+                                            <textarea id="daily-log" placeholder="Write about your day, experiences, thoughts, or events..." style="width: 100%; height: 300px; padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); resize: vertical; font-family: var(--font-family); line-height: 1.6;"></textarea>
+                                            <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                                <select id="narrative-style" style="flex: 1; padding: 0.75rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color);">
+                                                    <option value="epic">Epic Fantasy</option>
+                                                    <option value="mythology">Ancient Mythology</option>
+                                                    <option value="cosmic">Cosmic Adventure</option>
+                                                    <option value="medieval">Medieval Chronicle</option>
+                                                    <option value="mystical">Mystical Journey</option>
+                                                </select>
+                                                <button class="btn btn-primary" onclick="transformToMyth()" style="background: var(--web3-gold);">
+                                                    <i class="fas fa-magic"></i> Transform
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h3 style="color: var(--web3-gold); margin-bottom: 1rem;">Mythical Chronicle</h3>
+                                            <div id="mythical-output" style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; height: 300px; overflow-y: auto; font-style: italic; line-height: 1.8;">
+                                                <p style="color: var(--secondary-text-color); text-align: center; margin-top: 2rem;">Your mythical chronicle will appear here...</p>
+                                            </div>
+                                            <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                                <button class="btn btn-secondary" onclick="saveChronicle()">
+                                                    <i class="fas fa-save"></i> Save Chronicle
+                                                </button>
+                                                <button class="btn btn-secondary" onclick="exportChronicle()">
+                                                    <i class="fas fa-download"></i> Export
+                                                </button>
+                                                <button class="btn btn-secondary" onclick="viewChronicleHistory()">
+                                                    <i class="fas fa-history"></i> History
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 2rem;">
+                                        <h3 style="color: var(--web3-gold); margin-bottom: 1rem;">Recent Chronicles</h3>
+                                        <div id="chronicle-history" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+                                            <!-- Chronicle history will be populated here -->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -1479,7 +1594,91 @@
                                     <div class="module-subtitle">Custom audio environments for focus, sleep, meditation, and productivity.</div>
                                 </div>
                                 <div class="module-body">
-                                    <p>Flow Architect features coming soon!</p>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                        <div>
+                                            <h3 style="color: var(--neon-yellow); margin-bottom: 1rem;">Ambient Soundscapes</h3>
+                                            <div class="soundscape-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                                <div class="soundscape-card" onclick="playAmbient('rain')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.3s ease;">
+                                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌧️</div>
+                                                    <div style="font-weight: 600;">Rain</div>
+                                                    <div style="font-size: 0.8rem; color: var(--secondary-text-color);">Gentle rainfall</div>
+                                                </div>
+                                                <div class="soundscape-card" onclick="playAmbient('forest')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.3s ease;">
+                                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌲</div>
+                                                    <div style="font-weight: 600;">Forest</div>
+                                                    <div style="font-size: 0.8rem; color: var(--secondary-text-color);">Birds & nature</div>
+                                                </div>
+                                                <div class="soundscape-card" onclick="playAmbient('ocean')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.3s ease;">
+                                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌊</div>
+                                                    <div style="font-weight: 600;">Ocean</div>
+                                                    <div style="font-size: 0.8rem; color: var(--secondary-text-color);">Waves & seagulls</div>
+                                                </div>
+                                                <div class="soundscape-card" onclick="playAmbient('cafe')" style="padding: 1rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.3s ease;">
+                                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">☕</div>
+                                                    <div style="font-weight: 600;">Café</div>
+                                                    <div style="font-size: 0.8rem; color: var(--secondary-text-color);">Coffee shop buzz</div>
+                                                </div>
+                                            </div>
+                                            <div style="margin-top: 2rem;">
+                                                <h4 style="color: var(--neon-yellow); margin-bottom: 1rem;">Focus Modes</h4>
+                                                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                                    <button onclick="setFocusMode('pomodoro')" style="padding: 0.75rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                        🍅 Pomodoro Timer (25 min focus)
+                                                    </button>
+                                                    <button onclick="setFocusMode('deep')" style="padding: 0.75rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                        🧠 Deep Work (90 min sessions)
+                                                    </button>
+                                                    <button onclick="setFocusMode('meditation')" style="padding: 0.75rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                        🧘 Meditation (10-60 min)
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h3 style="color: var(--neon-yellow); margin-bottom: 1rem;">Audio Controls</h3>
+                                            <div id="audio-player" style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                                <div id="now-playing" style="text-align: center; margin-bottom: 1rem; color: var(--secondary-text-color);">
+                                                    Select a soundscape to begin
+                                                </div>
+                                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                                    <button id="play-pause-btn" onclick="togglePlayPause()" disabled style="background: var(--primary-color); border: none; border-radius: 50%; width: 50px; height: 50px; color: white; font-size: 1.2rem; cursor: pointer;">
+                                                        <i class="fas fa-play"></i>
+                                                    </button>
+                                                    <div style="flex: 1;">
+                                                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                                            <span style="font-size: 0.8rem;">Volume</span>
+                                                            <span id="volume-display" style="font-size: 0.8rem;">50%</span>
+                                                        </div>
+                                                        <input type="range" id="volume-slider" min="0" max="100" value="50" onchange="adjustVolume(this.value)" style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                                <div id="timer-display" style="text-align: center; font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin-bottom: 1rem;">
+                                                    00:00
+                                                </div>
+                                                <div style="display: flex; gap: 0.5rem;">
+                                                    <button onclick="setTimer(15)" class="btn btn-secondary" style="flex: 1;">15m</button>
+                                                    <button onclick="setTimer(30)" class="btn btn-secondary" style="flex: 1;">30m</button>
+                                                    <button onclick="setTimer(60)" class="btn btn-secondary" style="flex: 1;">1h</button>
+                                                    <button onclick="setTimer(0)" class="btn btn-secondary" style="flex: 1;">∞</button>
+                                                </div>
+                                            </div>
+                                            <div style="margin-top: 1rem;">
+                                                <h4 style="color: var(--neon-yellow); margin-bottom: 1rem;">Session Stats</h4>
+                                                <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem;">
+                                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center;">
+                                                        <div>
+                                                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--success-color);" id="sessions-today">0</div>
+                                                            <div style="font-size: 0.8rem; color: var(--secondary-text-color);">Sessions Today</div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--primary-color);" id="total-time">0h 0m</div>
+                                                            <div style="font-size: 0.8rem; color: var(--secondary-text-color);">Total Time</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -1492,7 +1691,41 @@
                                     <div class="module-subtitle">Your hacker companion for on-the-go terminal access.</div>
                                 </div>
                                 <div class="module-body">
-                                    <p>Gost@Termux features coming soon!</p>
+                                    <div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem; height: 100%;">
+                                        <div>
+                                            <div id="terminal-container" style="background: #000; border: 1px solid var(--cyber-green); border-radius: 8px; padding: 1rem; height: 400px; overflow-y: auto; font-family: 'Courier New', monospace; color: var(--cyber-green);">
+                                                <div id="terminal-output">
+                                                    <div style="color: var(--cyber-green);">Gost Terminal v1.0.0</div>
+                                                    <div style="color: var(--secondary-text-color);">Type 'help' for available commands</div>
+                                                    <div style="margin-top: 1rem;">
+                                                        <span style="color: var(--cyber-green);">gost@universe:~$</span> <span id="terminal-cursor" style="background: var(--cyber-green); color: #000;">_</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                                <input type="text" id="terminal-input" placeholder="Enter command..." style="flex: 1; padding: 0.75rem; background: #000; border: 1px solid var(--cyber-green); border-radius: 8px; color: var(--cyber-green); font-family: 'Courier New', monospace;" onkeypress="handleTerminalInput(event)">
+                                                <button onclick="executeTerminalCommand()" style="background: var(--cyber-green); color: #000; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600;">Execute</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h3 style="color: var(--cyber-green); margin-bottom: 1rem;">Quick Commands</h3>
+                                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                                <button onclick="runQuickCommand('ls -la')" style="padding: 0.5rem; background: var(--ai-bubble-color); border: 1px solid var(--cyber-green); border-radius: 4px; color: var(--cyber-green); cursor: pointer; text-align: left; font-family: monospace;">ls -la</button>
+                                                <button onclick="runQuickCommand('ps aux')" style="padding: 0.5rem; background: var(--ai-bubble-color); border: 1px solid var(--cyber-green); border-radius: 4px; color: var(--cyber-green); cursor: pointer; text-align: left; font-family: monospace;">ps aux</button>
+                                                <button onclick="runQuickCommand('netstat -tulpn')" style="padding: 0.5rem; background: var(--ai-bubble-color); border: 1px solid var(--cyber-green); border-radius: 4px; color: var(--cyber-green); cursor: pointer; text-align: left; font-family: monospace;">netstat -tulpn</button>
+                                                <button onclick="runQuickCommand('df -h')" style="padding: 0.5rem; background: var(--ai-bubble-color); border: 1px solid var(--cyber-green); border-radius: 4px; color: var(--cyber-green); cursor: pointer; text-align: left; font-family: monospace;">df -h</button>
+                                                <button onclick="runQuickCommand('top')" style="padding: 0.5rem; background: var(--ai-bubble-color); border: 1px solid var(--cyber-green); border-radius: 4px; color: var(--cyber-green); cursor: pointer; text-align: left; font-family: monospace;">top</button>
+                                            </div>
+                                            <h4 style="color: var(--cyber-green); margin: 1.5rem 0 1rem;">System Info</h4>
+                                            <div id="system-info" style="background: var(--ai-bubble-color); border: 1px solid var(--cyber-green); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.8rem;">
+                                                <div>OS: Linux Ubuntu 22.04</div>
+                                                <div>Kernel: 5.15.0</div>
+                                                <div>Uptime: 2h 34m</div>
+                                                <div>Memory: 4GB / 8GB</div>
+                                                <div>CPU: 85%</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -1505,7 +1738,79 @@
                                     <div class="module-subtitle">Deploy & Optimize your code with AI assistance.</div>
                                 </div>
                                 <div class="module-body">
-                                    <p>Code Mate features coming soon!</p>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                        <div>
+                                            <h3 style="color: var(--warning-color); margin-bottom: 1rem;">Project Management</h3>
+                                            <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem;">
+                                                <h4 style="margin-bottom: 1rem;">Create New Project</h4>
+                                                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                                    <input type="text" id="project-name" placeholder="Project name..." style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color);">
+                                                    <select id="project-type" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color);">
+                                                        <option value="react">React App</option>
+                                                        <option value="node">Node.js API</option>
+                                                        <option value="python">Python Flask</option>
+                                                        <option value="static">Static Website</option>
+                                                    </select>
+                                                    <button onclick="createProject()" class="btn btn-primary" style="background: var(--warning-color);">Create Project</button>
+                                                </div>
+                                            </div>
+                                            <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                                <h4 style="margin-bottom: 1rem;">Recent Projects</h4>
+                                                <div id="recent-projects" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                                    <div style="padding: 0.75rem; background: var(--surface-color); border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+                                                        <div>
+                                                            <div style="font-weight: 600;">AI-Universe-App</div>
+                                                            <div style="font-size: 0.8rem; color: var(--secondary-text-color);">React • Last modified 2h ago</div>
+                                                        </div>
+                                                        <button onclick="openProject('ai-universe')" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Open</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h3 style="color: var(--warning-color); margin-bottom: 1rem;">Deployment & Optimization</h3>
+                                            <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem;">
+                                                <h4 style="margin-bottom: 1rem;">Deploy to Cloud</h4>
+                                                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                                        <button onclick="deployTo('vercel')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer;">
+                                                            <div style="font-weight: 600;">Vercel</div>
+                                                            <div style="font-size: 0.7rem; color: var(--secondary-text-color);">Frontend</div>
+                                                        </button>
+                                                        <button onclick="deployTo('netlify')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer;">
+                                                            <div style="font-weight: 600;">Netlify</div>
+                                                            <div style="font-size: 0.7rem; color: var(--secondary-text-color);">Static</div>
+                                                        </button>
+                                                        <button onclick="deployTo('heroku')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer;">
+                                                            <div style="font-weight: 600;">Heroku</div>
+                                                            <div style="font-size: 0.7rem; color: var(--secondary-text-color);">Full-stack</div>
+                                                        </button>
+                                                        <button onclick="deployTo('aws')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer;">
+                                                            <div style="font-weight: 600;">AWS</div>
+                                                            <div style="font-size: 0.7rem; color: var(--secondary-text-color);">Enterprise</div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                                <h4 style="margin-bottom: 1rem;">Code Analysis</h4>
+                                                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                                    <button onclick="analyzeCode('performance')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                        🚀 Performance Analysis
+                                                    </button>
+                                                    <button onclick="analyzeCode('security')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                        🔒 Security Scan
+                                                    </button>
+                                                    <button onclick="analyzeCode('dependencies')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                        📦 Dependency Check
+                                                    </button>
+                                                    <button onclick="analyzeCode('best-practices')" style="padding: 0.75rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); cursor: pointer; text-align: left;">
+                                                        ✨ Best Practices
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -1515,10 +1820,60 @@
                             <div class="module-content fade-in">
                                 <div class="module-header">
                                     <div class="module-title">Novel Writer</div>
-                                    <div class="module-subtitle">Story Creation with AI.</div>
+                                    <div class="module-subtitle">AI-powered story creation and narrative development.</div>
                                 </div>
                                 <div class="module-body">
-                                    <p>Novel Writer features coming soon!</p>
+                                    <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; height: 100%;">
+                                        <div>
+                                            <h3 style="color: var(--neon-purple); margin-bottom: 1rem;">Story Elements</h3>
+                                            <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                                                <h4 style="margin-bottom: 0.5rem;">Genre</h4>
+                                                <select id="story-genre" style="width: 100%; padding: 0.5rem; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color);">
+                                                    <option value="fantasy">Fantasy</option>
+                                                    <option value="sci-fi">Science Fiction</option>
+                                                    <option value="mystery">Mystery</option>
+                                                    <option value="romance">Romance</option>
+                                                    <option value="thriller">Thriller</option>
+                                                    <option value="horror">Horror</option>
+                                                </select>
+                                            </div>
+                                            <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                                                <h4 style="margin-bottom: 0.5rem;">Characters</h4>
+                                                <div id="character-list" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+                                                    <!-- Characters will be added here -->
+                                                </div>
+                                                <button onclick="addCharacter()" class="btn btn-secondary" style="width: 100%;">Add Character</button>
+                                            </div>
+                                            <div style="background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem;">
+                                                <h4 style="margin-bottom: 0.5rem;">Plot Points</h4>
+                                                <div id="plot-points" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+                                                    <!-- Plot points will be added here -->
+                                                </div>
+                                                <button onclick="addPlotPoint()" class="btn btn-secondary" style="width: 100%;">Add Plot Point</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                                <h3 style="color: var(--neon-purple);">Story Editor</h3>
+                                                <div style="display: flex; gap: 0.5rem;">
+                                                    <button onclick="generateStoryIdea()" class="btn btn-primary" style="background: var(--neon-purple);">Generate Idea</button>
+                                                    <button onclick="continueStory()" class="btn btn-primary">Continue Story</button>
+                                                    <button onclick="saveStory()" class="btn btn-secondary">Save</button>
+                                                </div>
+                                            </div>
+                                            <textarea id="story-editor" placeholder="Begin writing your story here..." style="width: 100%; height: 400px; padding: 1.5rem; background: var(--ai-bubble-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-text-color); resize: vertical; font-family: 'Georgia', serif; line-height: 1.8; font-size: 1rem;"></textarea>
+                                            <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                                                <div style="display: flex; gap: 1rem; align-items: center;">
+                                                    <span style="font-size: 0.9rem; color: var(--secondary-text-color);">Word count: <span id="word-count">0</span></span>
+                                                    <span style="font-size: 0.9rem; color: var(--secondary-text-color);">Reading time: <span id="reading-time">0 min</span></span>
+                                                </div>
+                                                <div style="display: flex; gap: 0.5rem;">
+                                                    <button onclick="exportStory('txt')" class="btn btn-secondary">Export TXT</button>
+                                                    <button onclick="exportStory('pdf')" class="btn btn-secondary">Export PDF</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -1811,4 +2166,598 @@
     </body>
 </html>
 
+
+
+
+        // Learning System Functions
+        let currentTopic = null;
+        let currentLesson = 0;
+        let lessons = {};
+
+        function startLearning(topic) {
+            currentTopic = topic;
+            currentLesson = 0;
+            
+            // Define lesson content for each topic
+            lessons = {
+                javascript: [
+                    {
+                        title: "Variables and Data Types",
+                        content: `
+                            <h4>JavaScript Variables</h4>
+                            <p>Variables are containers for storing data values. In JavaScript, you can declare variables using <code>let</code>, <code>const</code>, or <code>var</code>.</p>
+                            <pre><code>let name = "John";
+const age = 25;
+var city = "New York";</code></pre>
+                            <p><strong>Data Types:</strong></p>
+                            <ul>
+                                <li>String: "Hello World"</li>
+                                <li>Number: 42, 3.14</li>
+                                <li>Boolean: true, false</li>
+                                <li>Array: [1, 2, 3]</li>
+                                <li>Object: {name: "John", age: 25}</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        title: "Functions",
+                        content: `
+                            <h4>JavaScript Functions</h4>
+                            <p>Functions are reusable blocks of code that perform specific tasks.</p>
+                            <pre><code>function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+// Arrow function
+const add = (a, b) => a + b;</code></pre>
+                            <p>Functions can take parameters and return values, making your code modular and reusable.</p>
+                        `
+                    }
+                ],
+                python: [
+                    {
+                        title: "Python Basics",
+                        content: `
+                            <h4>Python Syntax</h4>
+                            <p>Python uses indentation to define code blocks. No curly braces needed!</p>
+                            <pre><code>name = "Alice"
+age = 30
+
+if age >= 18:
+    print(f"Hello {name}, you are an adult!")
+else:
+    print(f"Hello {name}, you are a minor!")</code></pre>
+                        `
+                    }
+                ],
+                ai: [
+                    {
+                        title: "Introduction to AI",
+                        content: `
+                            <h4>What is Artificial Intelligence?</h4>
+                            <p>AI is the simulation of human intelligence in machines that are programmed to think and learn.</p>
+                            <p><strong>Types of AI:</strong></p>
+                            <ul>
+                                <li>Narrow AI: Designed for specific tasks</li>
+                                <li>General AI: Human-level intelligence</li>
+                                <li>Super AI: Beyond human intelligence</li>
+                            </ul>
+                        `
+                    }
+                ],
+                web: [
+                    {
+                        title: "HTML Fundamentals",
+                        content: `
+                            <h4>HTML Structure</h4>
+                            <p>HTML (HyperText Markup Language) is the standard markup language for web pages.</p>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        `
+                    }
+                ]
+            };
+
+            loadLesson();
+            document.getElementById('prev-lesson').disabled = true;
+            document.getElementById('next-lesson').disabled = lessons[topic].length <= 1;
+            document.getElementById('quiz-btn').disabled = false;
+        }
+
+        function loadLesson() {
+            if (!currentTopic || !lessons[currentTopic]) return;
+            
+            const lesson = lessons[currentTopic][currentLesson];
+            document.getElementById('learning-content').innerHTML = lesson.content;
+            
+            // Update navigation buttons
+            document.getElementById('prev-lesson').disabled = currentLesson === 0;
+            document.getElementById('next-lesson').disabled = currentLesson >= lessons[currentTopic].length - 1;
+        }
+
+        function previousLesson() {
+            if (currentLesson > 0) {
+                currentLesson--;
+                loadLesson();
+            }
+        }
+
+        function nextLesson() {
+            if (currentLesson < lessons[currentTopic].length - 1) {
+                currentLesson++;
+                loadLesson();
+            }
+        }
+
+        function startQuiz() {
+            alert(`Quiz for ${currentTopic} coming soon! This would test your knowledge of the current lesson.`);
+        }
+
+        // Eidolon Scribe Functions
+        function transformToMyth() {
+            const dailyLog = document.getElementById('daily-log').value;
+            const style = document.getElementById('narrative-style').value;
+            
+            if (!dailyLog.trim()) {
+                alert('Please write something in your daily journal first!');
+                return;
+            }
+
+            // Simulate AI transformation
+            const mythicalOutput = document.getElementById('mythical-output');
+            mythicalOutput.innerHTML = '<p style="color: var(--secondary-text-color); text-align: center;">Transforming your story into a mythical chronicle...</p>';
+            
+            setTimeout(() => {
+                const transformedText = generateMythicalNarrative(dailyLog, style);
+                mythicalOutput.innerHTML = transformedText;
+            }, 2000);
+        }
+
+        function generateMythicalNarrative(text, style) {
+            // Simple transformation based on style
+            const styleTemplates = {
+                epic: "In the grand tapestry of existence, where heroes rise and legends are born...",
+                mythology: "As the ancient gods looked down from Mount Olympus...",
+                cosmic: "Across the infinite expanse of the cosmos, where stars whisper secrets...",
+                medieval: "In the time of knights and castles, when honor ruled the land...",
+                mystical: "Through the veil of magic and mystery, where the impossible becomes reality..."
+            };
+
+            return `
+                <div style="font-style: italic; line-height: 1.8;">
+                    <p>${styleTemplates[style]}</p>
+                    <p>The chronicle speaks of a soul who ventured forth on this day, encountering trials and triumphs that would echo through the ages. ${text.substring(0, 200)}...</p>
+                    <p><em>And thus, another page was written in the eternal book of destiny.</em></p>
+                </div>
+            `;
+        }
+
+        function saveChronicle() {
+            const chronicle = document.getElementById('mythical-output').innerHTML;
+            if (chronicle.includes('Your mythical chronicle will appear here')) {
+                alert('No chronicle to save! Transform your daily log first.');
+                return;
+            }
+            
+            // Save to localStorage
+            const chronicles = JSON.parse(localStorage.getItem('chronicles') || '[]');
+            chronicles.push({
+                date: new Date().toISOString(),
+                content: chronicle
+            });
+            localStorage.setItem('chronicles', JSON.stringify(chronicles));
+            alert('Chronicle saved successfully!');
+        }
+
+        function exportChronicle() {
+            const chronicle = document.getElementById('mythical-output').innerText;
+            if (chronicle.includes('Your mythical chronicle will appear here')) {
+                alert('No chronicle to export! Transform your daily log first.');
+                return;
+            }
+            
+            const blob = new Blob([chronicle], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `chronicle-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+        }
+
+        // Flow Architect Functions
+        let currentAudio = null;
+        let isPlaying = false;
+        let currentTimer = null;
+        let timerDuration = 0;
+        let timeRemaining = 0;
+
+        function playAmbient(type) {
+            const nowPlaying = document.getElementById('now-playing');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            
+            // Stop current audio if playing
+            if (currentAudio) {
+                currentAudio.pause();
+            }
+            
+            // Create new audio context (simulated)
+            nowPlaying.textContent = `Playing: ${type.charAt(0).toUpperCase() + type.slice(1)} sounds`;
+            playPauseBtn.disabled = false;
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            isPlaying = true;
+            
+            // Simulate audio playback
+            console.log(`Playing ${type} ambient sounds`);
+        }
+
+        function togglePlayPause() {
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            
+            if (isPlaying) {
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                isPlaying = false;
+            } else {
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                isPlaying = true;
+            }
+        }
+
+        function adjustVolume(value) {
+            document.getElementById('volume-display').textContent = value + '%';
+            // Adjust actual audio volume here
+        }
+
+        function setTimer(minutes) {
+            if (currentTimer) {
+                clearInterval(currentTimer);
+            }
+            
+            if (minutes === 0) {
+                document.getElementById('timer-display').textContent = '∞';
+                return;
+            }
+            
+            timerDuration = minutes * 60;
+            timeRemaining = timerDuration;
+            updateTimerDisplay();
+            
+            currentTimer = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(currentTimer);
+                    alert('Timer finished! Great work on your focus session.');
+                    updateSessionStats();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer-display').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function setFocusMode(mode) {
+            const modes = {
+                pomodoro: 25,
+                deep: 90,
+                meditation: 10
+            };
+            
+            setTimer(modes[mode]);
+            alert(`${mode.charAt(0).toUpperCase() + mode.slice(1)} mode activated!`);
+        }
+
+        function updateSessionStats() {
+            const sessionsToday = parseInt(localStorage.getItem('sessionsToday') || '0') + 1;
+            const totalMinutes = parseInt(localStorage.getItem('totalMinutes') || '0') + Math.floor(timerDuration / 60);
+            
+            localStorage.setItem('sessionsToday', sessionsToday.toString());
+            localStorage.setItem('totalMinutes', totalMinutes.toString());
+            
+            document.getElementById('sessions-today').textContent = sessionsToday;
+            document.getElementById('total-time').textContent = `${Math.floor(totalMinutes / 60)}h ${totalMinutes % 60}m`;
+        }
+
+        // Terminal Functions
+        let terminalHistory = [];
+        let historyIndex = -1;
+
+        function handleTerminalInput(event) {
+            if (event.key === 'Enter') {
+                executeTerminalCommand();
+            } else if (event.key === 'ArrowUp') {
+                if (historyIndex < terminalHistory.length - 1) {
+                    historyIndex++;
+                    document.getElementById('terminal-input').value = terminalHistory[terminalHistory.length - 1 - historyIndex];
+                }
+            } else if (event.key === 'ArrowDown') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    document.getElementById('terminal-input').value = terminalHistory[terminalHistory.length - 1 - historyIndex];
+                } else if (historyIndex === 0) {
+                    historyIndex = -1;
+                    document.getElementById('terminal-input').value = '';
+                }
+            }
+        }
+
+        function executeTerminalCommand() {
+            const input = document.getElementById('terminal-input');
+            const command = input.value.trim();
+            
+            if (command) {
+                terminalHistory.push(command);
+                historyIndex = -1;
+                addTerminalOutput(`gost@universe:~$ ${command}`);
+                processCommand(command);
+                input.value = '';
+            }
+        }
+
+        function runQuickCommand(command) {
+            document.getElementById('terminal-input').value = command;
+            executeTerminalCommand();
+        }
+
+        function processCommand(command) {
+            const output = document.getElementById('terminal-output');
+            
+            switch (command.toLowerCase()) {
+                case 'help':
+                    addTerminalOutput(`Available commands:
+- help: Show this help message
+- ls: List directory contents
+- ps: Show running processes
+- clear: Clear terminal
+- whoami: Show current user
+- date: Show current date
+- echo [text]: Echo text back`);
+                    break;
+                case 'ls':
+                case 'ls -la':
+                    addTerminalOutput(`total 24
+drwxr-xr-x 3 gost gost 4096 Sep 24 21:40 .
+drwxr-xr-x 3 root root 4096 Sep 24 20:00 ..
+-rw-r--r-- 1 gost gost  220 Sep 24 20:00 .bash_logout
+-rw-r--r-- 1 gost gost 3771 Sep 24 20:00 .bashrc
+drwxr-xr-x 2 gost gost 4096 Sep 24 21:40 projects
+-rw-r--r-- 1 gost gost  807 Sep 24 20:00 .profile`);
+                    break;
+                case 'ps':
+                case 'ps aux':
+                    addTerminalOutput(`USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+gost         1  0.0  0.1  18508  3424 ?        Ss   20:00   0:00 /bin/bash
+gost        42  0.0  0.0  34400  2944 ?        R    21:40   0:00 ps aux`);
+                    break;
+                case 'whoami':
+                    addTerminalOutput('gost');
+                    break;
+                case 'date':
+                    addTerminalOutput(new Date().toString());
+                    break;
+                case 'clear':
+                    document.getElementById('terminal-output').innerHTML = `
+                        <div style="color: var(--cyber-green);">Gost Terminal v1.0.0</div>
+                        <div style="color: var(--secondary-text-color);">Type 'help' for available commands</div>
+                        <div style="margin-top: 1rem;">
+                            <span style="color: var(--cyber-green);">gost@universe:~$</span> <span id="terminal-cursor" style="background: var(--cyber-green); color: #000;">_</span>
+                        </div>
+                    `;
+                    return;
+                default:
+                    if (command.startsWith('echo ')) {
+                        addTerminalOutput(command.substring(5));
+                    } else {
+                        addTerminalOutput(`bash: ${command}: command not found`);
+                    }
+            }
+            
+            addTerminalOutput('<span style="color: var(--cyber-green);">gost@universe:~$</span> <span id="terminal-cursor" style="background: var(--cyber-green); color: #000;">_</span>');
+        }
+
+        function addTerminalOutput(text) {
+            const output = document.getElementById('terminal-output');
+            const div = document.createElement('div');
+            div.innerHTML = text;
+            output.appendChild(div);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        // Code Mate Functions
+        function createProject() {
+            const name = document.getElementById('project-name').value;
+            const type = document.getElementById('project-type').value;
+            
+            if (!name.trim()) {
+                alert('Please enter a project name!');
+                return;
+            }
+            
+            alert(`Creating ${type} project: ${name}...`);
+            // Simulate project creation
+            setTimeout(() => {
+                alert(`Project "${name}" created successfully!`);
+            }, 1500);
+        }
+
+        function openProject(projectId) {
+            alert(`Opening project: ${projectId}`);
+        }
+
+        function deployTo(platform) {
+            alert(`Deploying to ${platform}... This would integrate with ${platform}'s deployment API.`);
+        }
+
+        function analyzeCode(type) {
+            const analyses = {
+                performance: 'Performance analysis complete! Found 3 optimization opportunities.',
+                security: 'Security scan complete! No vulnerabilities detected.',
+                dependencies: 'Dependency check complete! 2 packages need updates.',
+                'best-practices': 'Code review complete! Following 95% of best practices.'
+            };
+            
+            alert(analyses[type]);
+        }
+
+        // Novel Writer Functions
+        let characters = [];
+        let plotPoints = [];
+        let wordCount = 0;
+
+        function addCharacter() {
+            const name = prompt('Enter character name:');
+            if (name) {
+                characters.push(name);
+                updateCharacterList();
+            }
+        }
+
+        function addPlotPoint() {
+            const point = prompt('Enter plot point:');
+            if (point) {
+                plotPoints.push(point);
+                updatePlotPoints();
+            }
+        }
+
+        function updateCharacterList() {
+            const list = document.getElementById('character-list');
+            list.innerHTML = characters.map(char => 
+                `<div style="padding: 0.5rem; background: var(--surface-color); border-radius: 4px; display: flex; justify-content: space-between;">
+                    <span>${char}</span>
+                    <button onclick="removeCharacter('${char}')" style="background: none; border: none; color: var(--error-color); cursor: pointer;">×</button>
+                </div>`
+            ).join('');
+        }
+
+        function updatePlotPoints() {
+            const list = document.getElementById('plot-points');
+            list.innerHTML = plotPoints.map((point, index) => 
+                `<div style="padding: 0.5rem; background: var(--surface-color); border-radius: 4px; display: flex; justify-content: space-between;">
+                    <span>${point.substring(0, 30)}...</span>
+                    <button onclick="removePlotPoint(${index})" style="background: none; border: none; color: var(--error-color); cursor: pointer;">×</button>
+                </div>`
+            ).join('');
+        }
+
+        function removeCharacter(name) {
+            characters = characters.filter(char => char !== name);
+            updateCharacterList();
+        }
+
+        function removePlotPoint(index) {
+            plotPoints.splice(index, 1);
+            updatePlotPoints();
+        }
+
+        function generateStoryIdea() {
+            const genre = document.getElementById('story-genre').value;
+            const ideas = {
+                fantasy: "A young mage discovers an ancient artifact that holds the power to reshape reality itself.",
+                'sci-fi': "In the year 2157, humanity receives a mysterious signal from a distant galaxy.",
+                mystery: "A detective investigates a series of impossible crimes that defy the laws of physics.",
+                romance: "Two rival architects are forced to work together on a project that will change their lives.",
+                thriller: "A cybersecurity expert uncovers a conspiracy that reaches the highest levels of government.",
+                horror: "A family moves into a house where the previous owners simply vanished without a trace."
+            };
+            
+            document.getElementById('story-editor').value = ideas[genre] + "\n\n";
+            updateWordCount();
+        }
+
+        function continueStory() {
+            const currentText = document.getElementById('story-editor').value;
+            if (!currentText.trim()) {
+                alert('Write something first, then I can help continue the story!');
+                return;
+            }
+            
+            // Simulate AI continuation
+            const continuations = [
+                "\n\nThe air grew thick with anticipation as...",
+                "\n\nSudddenly, a shadow moved in the corner of their vision...",
+                "\n\nWhat happened next would change everything...",
+                "\n\nThe truth was more complex than anyone had imagined..."
+            ];
+            
+            const randomContinuation = continuations[Math.floor(Math.random() * continuations.length)];
+            document.getElementById('story-editor').value += randomContinuation;
+            updateWordCount();
+        }
+
+        function saveStory() {
+            const story = document.getElementById('story-editor').value;
+            if (!story.trim()) {
+                alert('Nothing to save!');
+                return;
+            }
+            
+            const stories = JSON.parse(localStorage.getItem('stories') || '[]');
+            stories.push({
+                date: new Date().toISOString(),
+                content: story,
+                wordCount: wordCount
+            });
+            localStorage.setItem('stories', JSON.stringify(stories));
+            alert('Story saved successfully!');
+        }
+
+        function exportStory(format) {
+            const story = document.getElementById('story-editor').value;
+            if (!story.trim()) {
+                alert('Nothing to export!');
+                return;
+            }
+            
+            const blob = new Blob([story], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `story-${new Date().toISOString().split('T')[0]}.${format}`;
+            a.click();
+        }
+
+        function updateWordCount() {
+            const text = document.getElementById('story-editor').value;
+            wordCount = text.trim().split(/\s+/).length;
+            document.getElementById('word-count').textContent = wordCount;
+            document.getElementById('reading-time').textContent = Math.ceil(wordCount / 200) + ' min';
+        }
+
+        // Add event listener for story editor
+        document.addEventListener('DOMContentLoaded', function() {
+            const storyEditor = document.getElementById('story-editor');
+            if (storyEditor) {
+                storyEditor.addEventListener('input', updateWordCount);
+            }
+        });
+
+        // Creative AI Functions
+        function generateArt() {
+            alert('AI Art Generator would connect to DALL-E or Midjourney API to create artwork based on your description.');
+        }
+
+        function composeMusic() {
+            alert('Music Composer would use AI music generation APIs to create original compositions.');
+        }
+
+        function createVideo() {
+            alert('Video Creator would integrate with AI video generation services to create short clips.');
+        }
+
+        function generateContent() {
+            alert('Content Writer would use GPT API to generate blog posts and articles based on your topic.');
+        }
 
